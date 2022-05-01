@@ -2,7 +2,7 @@ require 'formula'
 
 class GitSsh < Formula
   url "https://github.com/digitalspacestdio/homebrew-git-ssh.git", :using => :git
-  version "0.1.14"
+  version "0.1.15"
   revision 1
 
   def install
