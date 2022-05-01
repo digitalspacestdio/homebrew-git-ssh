@@ -17,4 +17,8 @@ if echo $@ | grep -i '[A-Za-z0-9_\-]\+@[A-Za-z0-9_\-\.]\+' > /dev/null; then
   fi
 fi
 
+if [[ $SSH_KEY_ARG != "" ]]; then
+    "[git-ssh] Floowing extra args will be used: $SSH_KEY_ARG"
+fi
+
 exec ssh $SSH_KEY_ARG "$@"
