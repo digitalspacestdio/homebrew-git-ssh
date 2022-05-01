@@ -1,4 +1,7 @@
 # Git SSH
+A wrapper for an SSH client that allows you to use separate keys for each repository.
+---
+
 
 Install the formula
 
