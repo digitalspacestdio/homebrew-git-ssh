@@ -19,9 +19,10 @@ ssh-keygen -f ~/.ssh/id_rsa_github_com_companyname -t rsa
 
 ```
 Export the environment variable to override the default client  
+> Recomended to add to your rc file
 
 ```bash
-export GIT_SSH_COMMAND=$(brew --prefix git-ssh)'/bin/git-ssh -o StrictHostKeyChecking=no'
+export GIT_SSH_COMMAND=$(brew --prefix git-ssh)'/bin/git-ssh'
 ```
 
 Clone the repo  
