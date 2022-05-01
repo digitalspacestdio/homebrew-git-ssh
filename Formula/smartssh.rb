@@ -1,6 +1,6 @@
 require 'formula'
 
-class Smartssh < Formula
+class GitSsh < Formula
   url "https://github.com/digitalspacestdio/homebrew-git-ssh.git", :using => :git
   version "0.1.14"
   revision 1
