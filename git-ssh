@@ -1,0 +1,14 @@
+#!/bin/bash
+SSH_KEY_ARG=""
+if echo $@ | grep -i '[a-z0-9_\-]\+@[a-z0-9_\-\.]\+' > /dev/null; then
+  REPO_HOST_NAME=$(echo $@ | awk '{print tolower($0)}' | grep -o '[a-z0-9_\-]\+@[a-z0-9_\-\.]\+' | grep -o '[a-z0-9_\-\.]\+$' | sed "s/[^[:alnum:]-]/_/g")
+  REPO_GROUP_NAME=$(echo "${@: -1}" | awk '{print tolower($0)}' | grep -o '[a-z0-9_-]\+\/[a-z0-9_-]\+' | awk -F\/ '{ print $1 }' | sed "s/[^[:alnum:].-]/_/g")
+  REPO_NAME=$(echo "${@: -1}" | awk '{print tolower($0)}' | grep -o '[a-z0-9_-]\+\/[a-z0-9_-]\+' | awk -F\/ '{ print $2 }' | sed "s/[^[:alnum:].-]/_/g")
+  if [[ -f $HOME/.ssh/id_rsa_${REPO_HOST_NAME}_${REPO_GROUP_NAME}_${REPO_NAME} ]]; then
+    SSH_KEY_ARG="-i $HOME/.ssh/id_rsa_${REPO_HOST_NAME}_${REPO_GROUP_NAME}_${REPO_NAME}";
+  elif [[ -f $HOME/.ssh/id_rsa_${REPO_HOST_NAME}_${REPO_GROUP_NAME} ]]; then
+    SSH_KEY_ARG="-i $HOME/.ssh/id_rsa_${REPO_HOST_NAME}_${REPO_GROUP_NAME}";
+  fi
+fi
+
+exec ssh $SSH_KEY_ARG "$@"
