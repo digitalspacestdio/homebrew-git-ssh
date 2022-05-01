@@ -3,7 +3,7 @@ require 'formula'
 class GitSsh < Formula
   url "https://github.com/digitalspacestdio/homebrew-git-ssh.git", :using => :git
   version "0.1.15"
-  revision 2
+  revision 3
 
   def install
     libexec.install Dir["*"]
