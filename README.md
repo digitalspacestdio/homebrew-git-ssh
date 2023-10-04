@@ -1,5 +1,5 @@
 # Git SSH
-A wrapper for an SSH client that allows you to use separate keys for each repository.
+The wrapper for an SSH client that enables you to utilize distinct keys for each repository.
 ---
 
 
