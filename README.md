@@ -6,7 +6,7 @@ The wrapper for an SSH client that enables you to utilize distinct keys for each
 Install the formula
 
 ```bash
-brew install digitalspacestdio/git-ssh/git-ssh
+brew install digitalspacestdio/common/digitalspace-git-ssh
 
 ```
 Generatethe key for specific repo. 
